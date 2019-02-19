@@ -12,12 +12,12 @@ namespace calculator
 {
     public partial class Form1 : Form
     {
-        string input = ""; //user input 
-        string operand1; 
-        string operand2; 
         char operation;
-        double result = 0.0; //calculated result
-        
+        string input = "";
+        string operand1 = "";
+        string operand2 = "";
+        double result = 0.0;
+
 
 
         public Form1()
@@ -39,6 +39,11 @@ namespace calculator
 
         private void Button0_Click(object sender, EventArgs e)
         {
+         
+            if (displayBox.Text == "0")
+            {
+                displayBox.Text = "";
+            }
             displayBox.Text += "0";
         }
         private void Button1_Click(object sender, EventArgs e)
@@ -130,46 +135,82 @@ namespace calculator
 
         private void Equals_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Plus_Click(object sender, EventArgs e)
         {
            
-
-            if (displayBox.Text == "*-" || displayBox.Text == "*x" || displayBox.Text == "*/")
+            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "+";
             }
-
-            else if (displayBox.Text == "+")
+            else if (displayBox.Text.EndsWith("+"))
             {
-                displayBox.Text = "test";
+
+            }
+            else if (displayBox.Text == "0")
+            {
+               
             }
             else
             {
-                displayBox.Text += "+";
+                displayBox.Text += "+" ; }
             }
-        
-        }
 
         private void Minus_Click(object sender, EventArgs e)
 
         {
-            operand1 = displayBox.Text;
-            operation = '-';
-            displayBox.Text = "";
+            if (displayBox.Text == "0")
+            {
+                displayBox.Text = "";
+            }
+
+            if (displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("/"))
+            {
+                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "-";
+            }
+
+            else if (displayBox.Text.EndsWith("-"))
+            {
+            }
+            else
+            {
+                displayBox.Text += "-";
+            }
 
         }
 
         private void Multiply_Click(object sender, EventArgs e)
         {
-            displayBox.Text += "x";
+            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("/"))
+            {
+                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "x";
+            }
+
+            else if (displayBox.Text.EndsWith("x"))
+            {
+            }
+            else
+            {
+                displayBox.Text += "x";
+            }
         }
 
         private void Divide_Click(object sender, EventArgs e)
         {
-            displayBox.Text += "/";
+            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("+"))
+            {
+                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "/";
+            }
+
+            else if (displayBox.Text.EndsWith("/"))
+            {
+            }
+            else
+            {
+                displayBox.Text += "/";
+            }
         }
         private void Dot_Click(object sender, EventArgs e)
         {
