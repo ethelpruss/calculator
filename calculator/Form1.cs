@@ -14,10 +14,7 @@ namespace calculator
     {
         char operation;
         string input = "";
-        string operand1 = "";
-        string operand2 = "";
-        double result = 0.0;
-
+        int olegod = 0;
 
 
         public Form1()
@@ -130,15 +127,16 @@ namespace calculator
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            displayBox.Text = "0";
+            displayBox.Text = "";
+            resultBox.Text = "0";
         }
 
    
         private void Plus_Click(object sender, EventArgs e)
         {
-            operand1 = displayBox.Text;
+            
             operation = '+';
-            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("/"))
+            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "+";
             }
@@ -158,14 +156,13 @@ namespace calculator
         private void Minus_Click(object sender, EventArgs e)
 
         {
-            operand1 = displayBox.Text;
             operation = '-';
             if (displayBox.Text == "0")
             {
                 displayBox.Text = "";
             }
 
-            if (displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("/"))
+            if (displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "-";
             }
@@ -182,28 +179,26 @@ namespace calculator
 
         private void Multiply_Click(object sender, EventArgs e)
         {
-            operand1 = displayBox.Text;
             operation = '*';
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("/"))
             {
-                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "x";
+                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "*";
             }
 
-            else if (displayBox.Text.EndsWith("x"))
+            else if (displayBox.Text.EndsWith("*"))
             {
             }
             else
             {
-                displayBox.Text += "x";
+                displayBox.Text += "*";
             }
         }
 
         private void Divide_Click(object sender, EventArgs e)
 
         {
-            operand1 = displayBox.Text;
             operation = '/';
-            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("+"))
+            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("+"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "/";
             }
@@ -214,8 +209,6 @@ namespace calculator
             else
             {
                 displayBox.Text += "/";
-                displayBox.Text.PadLeft(3);
-                displayBox.Text.PadRight(3);
             }
         }
         private void Dot_Click(object sender, EventArgs e)
@@ -223,19 +216,16 @@ namespace calculator
 
             displayBox.Text += ".";
         }
-
+        //final calculation when equals button is pressed
         private void Equals_Click(object sender, EventArgs e)
         {
-            string[] stringArray1 = displayBox.Text.Split('*');
-            string[] stringArray = displayBox.Text.Split('+');
-            int num1 = Convert.ToInt32(stringArray[0]);
-            int num2 = Convert.ToInt32(stringArray[1]);
+            //string input = displayBox.Text;
+            string input = displayBox.Text;
+            //input = input.Replace("/", "");
+            DataTable inputCalculate = new DataTable();
+            object result = inputCalculate.Compute(input, "");
+            resultBox.Text = result.ToString();
 
-            if (operation == '+')
-            {
-                result = num1 + num2;
-                resultBox.Text = result.ToString();
-            }
         }
     }
 }
