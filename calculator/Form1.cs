@@ -14,8 +14,6 @@ namespace calculator
     {
         char operation;
         string input = "";
-        int olegod = 0;
-
 
         public Form1()
         {
@@ -213,8 +211,17 @@ namespace calculator
         }
         private void Dot_Click(object sender, EventArgs e)
         {
-
-            displayBox.Text += ".";
+            if (displayBox.Text.Contains("."))
+            {
+            }
+            else if(displayBox.Text == "")
+            {
+                displayBox.Text += "0.";
+            }
+            else
+            {
+                displayBox.Text += ".";
+            }
         }
         //final calculation when equals button is pressed
         private void Equals_Click(object sender, EventArgs e)
