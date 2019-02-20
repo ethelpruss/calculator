@@ -129,7 +129,11 @@ namespace calculator
             resultBox.Text = "0";
         }
 
-   
+        private void Backspace_Click(object sender, EventArgs e)
+        {
+            displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1);
+        }
+
         private void Plus_Click(object sender, EventArgs e)
         {
             
@@ -234,5 +238,7 @@ namespace calculator
             resultBox.Text = result.ToString();
 
         }
+
+
     }
 }
