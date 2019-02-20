@@ -45,7 +45,8 @@
             this.minusButton = new System.Windows.Forms.Button();
             this.multiplyButton = new System.Windows.Forms.Button();
             this.divideButton = new System.Windows.Forms.Button();
-            this.displayBox = new System.Windows.Forms.TextBox();
+            this.resultBox = new System.Windows.Forms.Label();
+            this.displayBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // zeroButton
@@ -53,7 +54,7 @@
             this.zeroButton.AccessibleName = "zeroButton";
             this.zeroButton.BackColor = System.Drawing.Color.Silver;
             this.zeroButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zeroButton.Location = new System.Drawing.Point(73, 284);
+            this.zeroButton.Location = new System.Drawing.Point(73, 275);
             this.zeroButton.Name = "zeroButton";
             this.zeroButton.Size = new System.Drawing.Size(46, 45);
             this.zeroButton.TabIndex = 0;
@@ -66,7 +67,7 @@
             this.oneButton.AccessibleName = "oneButton";
             this.oneButton.BackColor = System.Drawing.Color.Silver;
             this.oneButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oneButton.Location = new System.Drawing.Point(73, 233);
+            this.oneButton.Location = new System.Drawing.Point(73, 224);
             this.oneButton.Name = "oneButton";
             this.oneButton.Size = new System.Drawing.Size(46, 45);
             this.oneButton.TabIndex = 1;
@@ -79,7 +80,7 @@
             this.twoButton.AccessibleName = "twoButton";
             this.twoButton.BackColor = System.Drawing.Color.Silver;
             this.twoButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.twoButton.Location = new System.Drawing.Point(125, 233);
+            this.twoButton.Location = new System.Drawing.Point(125, 224);
             this.twoButton.Name = "twoButton";
             this.twoButton.Size = new System.Drawing.Size(46, 45);
             this.twoButton.TabIndex = 2;
@@ -92,7 +93,7 @@
             this.threeButton.AccessibleName = "threeButton";
             this.threeButton.BackColor = System.Drawing.Color.Silver;
             this.threeButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.threeButton.Location = new System.Drawing.Point(177, 233);
+            this.threeButton.Location = new System.Drawing.Point(177, 224);
             this.threeButton.Name = "threeButton";
             this.threeButton.Size = new System.Drawing.Size(46, 45);
             this.threeButton.TabIndex = 3;
@@ -105,7 +106,7 @@
             this.sixButton.AccessibleName = "sixButton";
             this.sixButton.BackColor = System.Drawing.Color.Silver;
             this.sixButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sixButton.Location = new System.Drawing.Point(177, 182);
+            this.sixButton.Location = new System.Drawing.Point(177, 173);
             this.sixButton.Name = "sixButton";
             this.sixButton.Size = new System.Drawing.Size(46, 45);
             this.sixButton.TabIndex = 6;
@@ -118,7 +119,7 @@
             this.fiveButton.AccessibleName = "fiveButton";
             this.fiveButton.BackColor = System.Drawing.Color.Silver;
             this.fiveButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiveButton.Location = new System.Drawing.Point(125, 182);
+            this.fiveButton.Location = new System.Drawing.Point(125, 173);
             this.fiveButton.Name = "fiveButton";
             this.fiveButton.Size = new System.Drawing.Size(46, 45);
             this.fiveButton.TabIndex = 5;
@@ -131,7 +132,7 @@
             this.fourButton.AccessibleName = "fourButton";
             this.fourButton.BackColor = System.Drawing.Color.Silver;
             this.fourButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fourButton.Location = new System.Drawing.Point(73, 182);
+            this.fourButton.Location = new System.Drawing.Point(73, 173);
             this.fourButton.Name = "fourButton";
             this.fourButton.Size = new System.Drawing.Size(46, 45);
             this.fourButton.TabIndex = 4;
@@ -144,7 +145,7 @@
             this.nineButton.AccessibleName = "nineButton";
             this.nineButton.BackColor = System.Drawing.Color.Silver;
             this.nineButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nineButton.Location = new System.Drawing.Point(177, 131);
+            this.nineButton.Location = new System.Drawing.Point(177, 122);
             this.nineButton.Name = "nineButton";
             this.nineButton.Size = new System.Drawing.Size(46, 45);
             this.nineButton.TabIndex = 9;
@@ -157,7 +158,7 @@
             this.eightButton.AccessibleName = "eightButton";
             this.eightButton.BackColor = System.Drawing.Color.Silver;
             this.eightButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eightButton.Location = new System.Drawing.Point(125, 131);
+            this.eightButton.Location = new System.Drawing.Point(125, 122);
             this.eightButton.Name = "eightButton";
             this.eightButton.Size = new System.Drawing.Size(46, 45);
             this.eightButton.TabIndex = 8;
@@ -170,7 +171,7 @@
             this.sevenButton.AccessibleName = "sevenButton";
             this.sevenButton.BackColor = System.Drawing.Color.Silver;
             this.sevenButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sevenButton.Location = new System.Drawing.Point(73, 131);
+            this.sevenButton.Location = new System.Drawing.Point(73, 122);
             this.sevenButton.Name = "sevenButton";
             this.sevenButton.Size = new System.Drawing.Size(46, 45);
             this.sevenButton.TabIndex = 7;
@@ -184,7 +185,7 @@
             this.cButton.BackColor = System.Drawing.Color.DarkGray;
             this.cButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cButton.ForeColor = System.Drawing.SystemColors.Menu;
-            this.cButton.Location = new System.Drawing.Point(21, 131);
+            this.cButton.Location = new System.Drawing.Point(21, 122);
             this.cButton.Name = "cButton";
             this.cButton.Size = new System.Drawing.Size(46, 45);
             this.cButton.TabIndex = 10;
@@ -198,7 +199,7 @@
             this.equalsButton.BackColor = System.Drawing.Color.DarkGray;
             this.equalsButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.equalsButton.ForeColor = System.Drawing.SystemColors.Menu;
-            this.equalsButton.Location = new System.Drawing.Point(177, 284);
+            this.equalsButton.Location = new System.Drawing.Point(177, 275);
             this.equalsButton.Name = "equalsButton";
             this.equalsButton.Size = new System.Drawing.Size(46, 45);
             this.equalsButton.TabIndex = 11;
@@ -211,7 +212,7 @@
             this.dotButton.AccessibleName = "dotButton";
             this.dotButton.BackColor = System.Drawing.Color.Silver;
             this.dotButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dotButton.Location = new System.Drawing.Point(125, 284);
+            this.dotButton.Location = new System.Drawing.Point(125, 275);
             this.dotButton.Name = "dotButton";
             this.dotButton.Size = new System.Drawing.Size(46, 45);
             this.dotButton.TabIndex = 12;
@@ -225,7 +226,7 @@
             this.plusButton.BackColor = System.Drawing.Color.DarkGray;
             this.plusButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plusButton.ForeColor = System.Drawing.SystemColors.Menu;
-            this.plusButton.Location = new System.Drawing.Point(229, 284);
+            this.plusButton.Location = new System.Drawing.Point(229, 275);
             this.plusButton.Name = "plusButton";
             this.plusButton.Size = new System.Drawing.Size(46, 45);
             this.plusButton.TabIndex = 13;
@@ -239,7 +240,7 @@
             this.minusButton.BackColor = System.Drawing.Color.DarkGray;
             this.minusButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusButton.ForeColor = System.Drawing.SystemColors.Menu;
-            this.minusButton.Location = new System.Drawing.Point(229, 233);
+            this.minusButton.Location = new System.Drawing.Point(229, 224);
             this.minusButton.Name = "minusButton";
             this.minusButton.Size = new System.Drawing.Size(46, 45);
             this.minusButton.TabIndex = 14;
@@ -253,7 +254,7 @@
             this.multiplyButton.BackColor = System.Drawing.Color.DarkGray;
             this.multiplyButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multiplyButton.ForeColor = System.Drawing.SystemColors.Menu;
-            this.multiplyButton.Location = new System.Drawing.Point(229, 182);
+            this.multiplyButton.Location = new System.Drawing.Point(229, 173);
             this.multiplyButton.Name = "multiplyButton";
             this.multiplyButton.Size = new System.Drawing.Size(46, 45);
             this.multiplyButton.TabIndex = 15;
@@ -267,7 +268,7 @@
             this.divideButton.BackColor = System.Drawing.Color.DarkGray;
             this.divideButton.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.divideButton.ForeColor = System.Drawing.SystemColors.Menu;
-            this.divideButton.Location = new System.Drawing.Point(229, 131);
+            this.divideButton.Location = new System.Drawing.Point(229, 122);
             this.divideButton.Name = "divideButton";
             this.divideButton.Size = new System.Drawing.Size(46, 45);
             this.divideButton.TabIndex = 16;
@@ -275,20 +276,28 @@
             this.divideButton.UseVisualStyleBackColor = false;
             this.divideButton.Click += new System.EventHandler(this.Divide_Click);
             // 
+            // resultBox
+            // 
+            this.resultBox.BackColor = System.Drawing.Color.Silver;
+            this.resultBox.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultBox.Location = new System.Drawing.Point(21, 58);
+            this.resultBox.Name = "resultBox";
+            this.resultBox.Size = new System.Drawing.Size(254, 47);
+            this.resultBox.TabIndex = 18;
+            this.resultBox.Text = "0\r\n";
+            this.resultBox.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.resultBox.Click += new System.EventHandler(this.displayBox_TextChanged);
+            // 
             // displayBox
             // 
-            this.displayBox.AccessibleName = "displayBox";
-            this.displayBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.displayBox.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.displayBox.Location = new System.Drawing.Point(21, 34);
-            this.displayBox.Multiline = true;
+            this.displayBox.BackColor = System.Drawing.Color.Silver;
+            this.displayBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.displayBox.Location = new System.Drawing.Point(21, 27);
             this.displayBox.Name = "displayBox";
-            this.displayBox.Size = new System.Drawing.Size(254, 75);
-            this.displayBox.TabIndex = 17;
-            this.displayBox.Text = "0";
-            this.displayBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.displayBox.TextChanged += new System.EventHandler(this.displayBox_TextChanged);
+            this.displayBox.Size = new System.Drawing.Size(254, 31);
+            this.displayBox.TabIndex = 19;
+            this.displayBox.Click += new System.EventHandler(this.displayBox_TextChanged);
             // 
             // Form1
             // 
@@ -296,8 +305,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(297, 361);
+            this.ClientSize = new System.Drawing.Size(297, 348);
             this.Controls.Add(this.displayBox);
+            this.Controls.Add(this.resultBox);
             this.Controls.Add(this.divideButton);
             this.Controls.Add(this.multiplyButton);
             this.Controls.Add(this.minusButton);
@@ -318,10 +328,9 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
-            this.Text = "0";
+            this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -344,7 +353,8 @@
         private System.Windows.Forms.Button minusButton;
         private System.Windows.Forms.Button multiplyButton;
         private System.Windows.Forms.Button divideButton;
-        private System.Windows.Forms.TextBox displayBox;
+        private System.Windows.Forms.Label resultBox;
+        private System.Windows.Forms.Label displayBox;
     }
 }
 

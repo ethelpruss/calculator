@@ -133,14 +133,11 @@ namespace calculator
             displayBox.Text = "0";
         }
 
-        private void Equals_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+   
         private void Plus_Click(object sender, EventArgs e)
         {
-           
+            operand1 = displayBox.Text;
+            operation = '+';
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "+";
@@ -161,6 +158,8 @@ namespace calculator
         private void Minus_Click(object sender, EventArgs e)
 
         {
+            operand1 = displayBox.Text;
+            operation = '-';
             if (displayBox.Text == "0")
             {
                 displayBox.Text = "";
@@ -183,6 +182,8 @@ namespace calculator
 
         private void Multiply_Click(object sender, EventArgs e)
         {
+            operand1 = displayBox.Text;
+            operation = '*';
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "x";
@@ -198,7 +199,10 @@ namespace calculator
         }
 
         private void Divide_Click(object sender, EventArgs e)
+
         {
+            operand1 = displayBox.Text;
+            operation = '/';
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("x") || displayBox.Text.EndsWith("+"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "/";
@@ -210,12 +214,28 @@ namespace calculator
             else
             {
                 displayBox.Text += "/";
+                displayBox.Text.PadLeft(3);
+                displayBox.Text.PadRight(3);
             }
         }
         private void Dot_Click(object sender, EventArgs e)
         {
 
             displayBox.Text += ".";
+        }
+
+        private void Equals_Click(object sender, EventArgs e)
+        {
+            string[] stringArray1 = displayBox.Text.Split('*');
+            string[] stringArray = displayBox.Text.Split('+');
+            int num1 = Convert.ToInt32(stringArray[0]);
+            int num2 = Convert.ToInt32(stringArray[1]);
+
+            if (operation == '+')
+            {
+                result = num1 + num2;
+                resultBox.Text = result.ToString();
+            }
         }
     }
 }
