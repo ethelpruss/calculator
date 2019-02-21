@@ -12,9 +12,6 @@ namespace calculator
 {
     public partial class Form1 : Form
     {
-        char operation;
-        string input = "";
-
         public Form1()
         {
             InitializeComponent();
@@ -34,16 +31,14 @@ namespace calculator
 
         private void Button0_Click(object sender, EventArgs e)
         {
-         
-            if (displayBox.Text == "0")
+            if (displayBox.Text != "0")
             {
-                displayBox.Text = "";
-            }
             displayBox.Text += "0";
+            }
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            if(displayBox.Text=="0")
+            if (displayBox.Text == "0")
             {
                 displayBox.Text = "";
             }
@@ -104,7 +99,7 @@ namespace calculator
             displayBox.Text += "7";
         }
 
- 
+
         private void Button8_Click(object sender, EventArgs e)
         {
             if (displayBox.Text == "0")
@@ -122,22 +117,25 @@ namespace calculator
             }
             displayBox.Text += "9";
         }
-
+        //clear button functionality
         private void Clear_Click(object sender, EventArgs e)
         {
             displayBox.Text = "";
             resultBox.Text = "0";
         }
 
+        //backspace button
         private void Backspace_Click(object sender, EventArgs e)
-        {
-            displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1);
-        }
+        {//delete last character in input if input is not empty
+            if ( displayBox.Text != "")
+            {
+                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1);
 
+            }
+        }
+        //plus button functionality
         private void Plus_Click(object sender, EventArgs e)
         {
-            
-            operation = '+';
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "+";
@@ -146,23 +144,15 @@ namespace calculator
             {
 
             }
-            else if (displayBox.Text == "0")
-            {
-               
-            }
             else
             {
-                displayBox.Text += "+" ; }
+                displayBox.Text += "+";
             }
-
+        }
+        //minus button functionality
         private void Minus_Click(object sender, EventArgs e)
 
         {
-            operation = '-';
-            if (displayBox.Text == "0")
-            {
-                displayBox.Text = "";
-            }
 
             if (displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("/"))
             {
@@ -178,10 +168,9 @@ namespace calculator
             }
 
         }
-
+        //multiply button functionality
         private void Multiply_Click(object sender, EventArgs e)
         {
-            operation = '*';
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("/"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "*";
@@ -195,19 +184,19 @@ namespace calculator
                 displayBox.Text += "*";
             }
         }
-
+        //divide button functionality
         private void Divide_Click(object sender, EventArgs e)
-
         {
-            operation = '/';
+            // check if another operator is selected, if it is replace it
             if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("+"))
             {
                 displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + "/";
             }
-
+            // do not add doubles
             else if (displayBox.Text.EndsWith("/"))
             {
             }
+            // otherwise add /
             else
             {
                 displayBox.Text += "/";
@@ -215,28 +204,49 @@ namespace calculator
         }
         private void Dot_Click(object sender, EventArgs e)
         {
-            if (displayBox.Text.Contains("."))
-            {
+            // split input into operands by operator symbols
+            string[] stringArray = displayBox.Text.Split(new char[] { '+', '-', '*', '/' });
+            int count = -1;
+            // check if operator symbol is last in input, if not continue
+            if (!displayBox.Text.EndsWith("+") && !displayBox.Text.EndsWith("-") && !displayBox.Text.EndsWith("*") && !displayBox.Text.EndsWith("/"))
+            {// loop through every operand in array of operands
+                foreach (string element in stringArray)
+                {
+                    count++;
+                   // if display is empty change . to 0.
+                    if (displayBox.Text == "")
+                    {
+                        displayBox.Text += "0.";
+                    }
+
+                   // if operand does not contain . already add .
+                    else if (!stringArray[count].Contains("."))
+                    {
+                        displayBox.Text += ".";
+                    }
+                }
             }
-            else if(displayBox.Text == "")
+
+        }
+        // final calculation when equals button is pressed
+        private void Equals_Click(object sender, EventArgs e)
+        {
+            if (!displayBox.Text.EndsWith("-") && !displayBox.Text.EndsWith("*") && !displayBox.Text.EndsWith("+") && !displayBox.Text.EndsWith("/"))
             {
-                displayBox.Text += "0.";
+                string input = displayBox.Text;
+                // convert input string to computable object
+                DataTable inputCalculate = new DataTable();
+                // calculate result
+                object result = inputCalculate.Compute(input, "");
+                // print result to resultbox
+                resultBox.Text = result.ToString();
             }
             else
             {
-                displayBox.Text += ".";
+                string message = "This operation requires a second operand.";
+                string title = "Calculation error";
+                MessageBox.Show(message, title);
             }
-        }
-        //final calculation when equals button is pressed
-        private void Equals_Click(object sender, EventArgs e)
-        {
-            //string input = displayBox.Text;
-            string input = displayBox.Text;
-            //input = input.Replace("/", "");
-            DataTable inputCalculate = new DataTable();
-            object result = inputCalculate.Compute(input, "");
-            resultBox.Text = result.ToString();
-
         }
 
 
