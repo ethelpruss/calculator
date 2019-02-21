@@ -29,6 +29,21 @@ namespace calculator
 
         }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            {
+                oneButton.PerformClick();
+                   
+            }
+         
+
+            if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
+            {
+            }
+
+        }
+
 
         private void Button0_Click(object sender, EventArgs e)
         {//add 0 to input if operand doesn't already begin with 0
@@ -290,6 +305,9 @@ namespace calculator
             }
         }
 
+        private void ZeroButton_KeyUp(object sender, KeyEventArgs e)
+        {
 
+        }
     }
 }

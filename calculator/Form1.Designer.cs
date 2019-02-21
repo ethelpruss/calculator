@@ -1,4 +1,6 @@
-﻿namespace calculator
+﻿using System.Windows.Forms;
+
+namespace calculator
 {
     partial class Form1
     {
@@ -62,6 +64,7 @@
             this.zeroButton.Text = "0";
             this.zeroButton.UseVisualStyleBackColor = false;
             this.zeroButton.Click += new System.EventHandler(this.Button0_Click);
+            this.zeroButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ZeroButton_KeyUp);
             // 
             // oneButton
             // 
@@ -75,6 +78,7 @@
             this.oneButton.Text = "1\r\n";
             this.oneButton.UseVisualStyleBackColor = false;
             this.oneButton.Click += new System.EventHandler(this.Button1_Click);
+            this.oneButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OneButton_KeyPress);
             // 
             // twoButton
             // 
@@ -343,10 +347,12 @@
             this.Controls.Add(this.zeroButton);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
 
         }
