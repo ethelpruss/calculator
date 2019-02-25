@@ -64,7 +64,6 @@ namespace calculator
             this.zeroButton.Text = "0";
             this.zeroButton.UseVisualStyleBackColor = false;
             this.zeroButton.Click += new System.EventHandler(this.Button0_Click);
-            this.zeroButton.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ZeroButton_KeyUp);
             // 
             // oneButton
             // 
@@ -77,8 +76,7 @@ namespace calculator
             this.oneButton.TabIndex = 1;
             this.oneButton.Text = "1\r\n";
             this.oneButton.UseVisualStyleBackColor = false;
-            this.oneButton.Click += new System.EventHandler(this.Button1_Click);
-            this.oneButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OneButton_KeyPress);
+            this.oneButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // twoButton
             // 
@@ -91,7 +89,7 @@ namespace calculator
             this.twoButton.TabIndex = 2;
             this.twoButton.Text = "2";
             this.twoButton.UseVisualStyleBackColor = false;
-            this.twoButton.Click += new System.EventHandler(this.Button2_Click);
+            this.twoButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // threeButton
             // 
@@ -104,7 +102,7 @@ namespace calculator
             this.threeButton.TabIndex = 3;
             this.threeButton.Text = "3";
             this.threeButton.UseVisualStyleBackColor = false;
-            this.threeButton.Click += new System.EventHandler(this.Button3_Click);
+            this.threeButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // sixButton
             // 
@@ -117,7 +115,7 @@ namespace calculator
             this.sixButton.TabIndex = 6;
             this.sixButton.Text = "6";
             this.sixButton.UseVisualStyleBackColor = false;
-            this.sixButton.Click += new System.EventHandler(this.Button6_Click);
+            this.sixButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // fiveButton
             // 
@@ -130,7 +128,7 @@ namespace calculator
             this.fiveButton.TabIndex = 5;
             this.fiveButton.Text = "5";
             this.fiveButton.UseVisualStyleBackColor = false;
-            this.fiveButton.Click += new System.EventHandler(this.Button5_Click);
+            this.fiveButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // fourButton
             // 
@@ -143,7 +141,7 @@ namespace calculator
             this.fourButton.TabIndex = 4;
             this.fourButton.Text = "4";
             this.fourButton.UseVisualStyleBackColor = false;
-            this.fourButton.Click += new System.EventHandler(this.Button4_Click);
+            this.fourButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // nineButton
             // 
@@ -156,7 +154,7 @@ namespace calculator
             this.nineButton.TabIndex = 9;
             this.nineButton.Text = "9";
             this.nineButton.UseVisualStyleBackColor = false;
-            this.nineButton.Click += new System.EventHandler(this.Button9_Click);
+            this.nineButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // eightButton
             // 
@@ -169,7 +167,7 @@ namespace calculator
             this.eightButton.TabIndex = 8;
             this.eightButton.Text = "8";
             this.eightButton.UseVisualStyleBackColor = false;
-            this.eightButton.Click += new System.EventHandler(this.Button8_Click);
+            this.eightButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // sevenButton
             // 
@@ -182,7 +180,7 @@ namespace calculator
             this.sevenButton.TabIndex = 7;
             this.sevenButton.Text = "7";
             this.sevenButton.UseVisualStyleBackColor = false;
-            this.sevenButton.Click += new System.EventHandler(this.Button7_Click);
+            this.sevenButton.Click += new System.EventHandler(this.Number_Button_Click);
             // 
             // cButton
             // 
@@ -237,7 +235,7 @@ namespace calculator
             this.plusButton.TabIndex = 13;
             this.plusButton.Text = "+";
             this.plusButton.UseVisualStyleBackColor = false;
-            this.plusButton.Click += new System.EventHandler(this.Plus_Click);
+            this.plusButton.Click += new System.EventHandler(this.Operator_Button_Click);
             // 
             // minusButton
             // 
@@ -251,7 +249,7 @@ namespace calculator
             this.minusButton.TabIndex = 14;
             this.minusButton.Text = "-";
             this.minusButton.UseVisualStyleBackColor = false;
-            this.minusButton.Click += new System.EventHandler(this.Minus_Click);
+            this.minusButton.Click += new System.EventHandler(this.Operator_Button_Click);
             // 
             // multiplyButton
             // 
@@ -265,7 +263,7 @@ namespace calculator
             this.multiplyButton.TabIndex = 15;
             this.multiplyButton.Text = "×";
             this.multiplyButton.UseVisualStyleBackColor = false;
-            this.multiplyButton.Click += new System.EventHandler(this.Multiply_Click);
+            this.multiplyButton.Click += new System.EventHandler(this.Operator_Button_Click);
             // 
             // divideButton
             // 
@@ -279,7 +277,7 @@ namespace calculator
             this.divideButton.TabIndex = 16;
             this.divideButton.Text = "÷\r\n";
             this.divideButton.UseVisualStyleBackColor = false;
-            this.divideButton.Click += new System.EventHandler(this.Divide_Click);
+            this.divideButton.Click += new System.EventHandler(this.Operator_Button_Click);
             // 
             // resultBox
             // 
@@ -353,6 +351,7 @@ namespace calculator
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
 
         }
