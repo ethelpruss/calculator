@@ -94,7 +94,6 @@ namespace calculator
                     minusButton.PerformClick();
                     break;
                 case (char)'*':
-                case (char)'x':
                     multiplyButton.PerformClick();
                     break;
                 case (char)'/':
@@ -125,8 +124,8 @@ namespace calculator
         // 0 button
         private void Button0_Click(object sender, EventArgs e)
         {//add 0 to input if operand doesn't already begin with 0
-            if (displayBox.Text != "0" && !displayBox.Text.EndsWith("-0") && !displayBox.Text.EndsWith("*0") 
-                && !displayBox.Text.EndsWith("+0") && !displayBox.Text.EndsWith("/0"))
+            if (displayBox.Text != "0" && !displayBox.Text.EndsWith("-0") && !displayBox.Text.EndsWith("×0") 
+                && !displayBox.Text.EndsWith("+0") && !displayBox.Text.EndsWith("÷0"))
             {
             displayBox.Text += "0";
             }
@@ -136,27 +135,29 @@ namespace calculator
         // + - / * buttons
         private void Operator_Button_Click(object sender, EventArgs e)
         {
+            string buttonText = (sender as Button).Text;
+
             // if input is empty change to 0
             if (displayBox.Text == "")
             {
                 displayBox.Text += "0";
             }
             // check if another operator is selected, if it is replace it
-            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("*") || displayBox.Text.EndsWith("/") 
+            if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("×") || displayBox.Text.EndsWith("÷") 
                 || displayBox.Text.EndsWith("+"))
             {
-                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + (sender as Button).Text;
+                displayBox.Text = displayBox.Text.Remove(displayBox.Text.Length - 1, 1) + buttonText;
             }
 
             // autocorrect trailing . to .0
             else if (displayBox.Text.EndsWith("."))
             {
-                displayBox.Text += "0" + (sender as Button).Text;
+                displayBox.Text += "0" + buttonText;
             }
             // otherwise add operator
             else
             {
-                displayBox.Text += (sender as Button).Text; ;
+                displayBox.Text += buttonText;
             }
             equalsButton.Focus();
         }
@@ -184,8 +185,8 @@ namespace calculator
         private void Dot_Click(object sender, EventArgs e)
         {
             // split input into operands by operator symbols
-            string[] stringArray = displayBox.Text.Split(new char[] {'+', '-', '*', '/'});
-            string[] symbolArray = { "+", "-", "*", "/", "." };
+            string[] stringArray = displayBox.Text.Split(new char[] {'+', '-', '×', '÷' });
+            string[] symbolArray = { "+", "-", "×", "÷", "." };
 
             // check if operator symbol or . is last in input, if not continue
             bool[] boolArray = new bool[symbolArray.Length];
@@ -214,27 +215,31 @@ namespace calculator
         // final calculation when equals button is pressed
         private void Equals_Click(object sender, EventArgs e)
         {
+            string input = displayBox.Text;
+
             if (displayBox.Text.EndsWith("."))
             {
                 displayBox.Text += "0";
             }
 
-            if (!displayBox.Text.EndsWith("-") && !displayBox.Text.EndsWith("*") && !displayBox.Text.EndsWith("+") && !displayBox.Text.EndsWith("/"))
+            // missing operand error
+            else
             {
-                string input = displayBox.Text;
+                if (displayBox.Text.EndsWith("-") || displayBox.Text.EndsWith("×") || displayBox.Text.EndsWith("+") || displayBox.Text.EndsWith("÷"))
+                {
+                    string firstOperand = input.Remove(displayBox.Text.Length - 1, 1);
+                    displayBox.Text += firstOperand;
+                    input = displayBox.Text;
+                }
+
+                input = input.Replace("÷", "/");
+                input = input.Replace("×", "*");
                 // convert input string to computable object
                 DataTable inputCalculate = new DataTable();
                 // calculate result
                 object result = inputCalculate.Compute(input, "");
                 // print result to resultbox
                 resultBox.Text = result.ToString();
-            }
-            // missing operand error
-            else
-            {
-                string message = "Please insert a second operand.";
-                string title = "Calculation error";
-                MessageBox.Show(message, title);
             }
         }
 

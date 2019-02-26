@@ -261,6 +261,7 @@ namespace calculator
             this.multiplyButton.Name = "multiplyButton";
             this.multiplyButton.Size = new System.Drawing.Size(46, 45);
             this.multiplyButton.TabIndex = 15;
+            this.multiplyButton.Tag = "";
             this.multiplyButton.Text = "×";
             this.multiplyButton.UseVisualStyleBackColor = false;
             this.multiplyButton.Click += new System.EventHandler(this.Operator_Button_Click);
@@ -275,7 +276,7 @@ namespace calculator
             this.divideButton.Name = "divideButton";
             this.divideButton.Size = new System.Drawing.Size(46, 45);
             this.divideButton.TabIndex = 16;
-            this.divideButton.Text = "÷\r\n";
+            this.divideButton.Text = "÷";
             this.divideButton.UseVisualStyleBackColor = false;
             this.divideButton.Click += new System.EventHandler(this.Operator_Button_Click);
             // 
